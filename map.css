@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(to right, black, rgb(54, 53, 53));
+    color: white;
+}
+.mainheader{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap: 100px; */
+    justify-content: space-around;
+    margin: 10px 0px;
+}
+.name{
+    font-size: 30px;
+    font-weight: 400;   
+}
+.searchbox{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+.searchfrom{
+    display: flex;
+    align-items: center;
+}
+.searchfrom input{
+    padding: 5px 10px;
+    padding-right: 50px;
+    /* margin: 20px 0px; */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    outline: none;
+}
+.searchfrom img{
+    position: relative;
+    background-color: orange;
+    left: -35px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+.searchto{
+    display: flex;
+    align-items: center;
+}
+.searchto input{
+    padding: 5px 10px;
+    padding-right: 50px;
+    outline: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif; 
+}
+.searchto img{
+    position: relative;
+    background-color: orange;
+    left: -35px;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color:orange;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.search input{
+    padding: 5px 10px;
+    padding-right: 50px;
+    /* margin: 20px 0px; */
+    outline: none;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+.search img{
+    position: relative;
+    background-color: orange;
+    left: -38px;
+    top: 9.5px;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+iframe{
+    padding: 50px 150px;
+}
