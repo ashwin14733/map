@@ -33,12 +33,14 @@ nav{
 }
 .destinationbox{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
     margin-right: 160px;
 }
 .searchfrom{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 12px;
 
@@ -62,6 +64,7 @@ nav{
 }
 .searchto{
     display: flex;
+    /* flex-wrap: wrap; */
     align-items: center;
     margin-top: 12px;
 }
@@ -117,5 +120,57 @@ button{
     border-bottom-right-radius: 5px;
 }
 iframe{
-    padding: 30px 150px;
+    margin: 40px 150px;
+}
+
+
+
+@media screen and (max-width:500px) {
+   /* .mainheader,.searchbox,.destinationbox,.searchfrom,.searchto{
+    display: block;
+   } */
+    /* #searchbuttondestination{
+        position: relative;
+        left: 220px;
+    } */
+     .searchbox{
+        gap: 20px;
+        width: 100%;
+     }
+     .searchfrom input, .searchto input,.search input{
+        padding-right: 155px;
+     }
+     .searchto img{
+        left: -40px;
+        top: 0px;
+     }
+     .search img{
+        padding: 7.4px 8px;
+     }
+     iframe{
+        margin: 40px 41px;
+     }
+     .search img{
+        left: 325px;
+        top: -39px;
+       
+     }
+    
+}
+
+@media (min-width : 700px) and (max-width : 880px){
+    .mainheader,.searchbox{
+    display: block;
+    } 
+    .destinationbox,.searchfrom,.searchto{
+        display: flex;
+    }
+    
+    iframe{
+        margin: 80px;
+    }
+    .name{
+        font-size: 20px;
+        
+    }
 }
