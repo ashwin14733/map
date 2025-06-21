@@ -27,6 +27,9 @@
                     <input type="search" placeholder="Search" id="searchlocation">
                     <img src="ic_round-search.png" alt="" id="searchbtn">
                 </div>
+                <div>
+                    <button id="sharebtn">Share</button>
+                </div>
             
                 <!-- <div>
                     <button type="submit" id="searchbtn" class="button">Search</button>
@@ -36,7 +39,7 @@
         </div>
     </nav>
     <div id="pushing">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17836.82653342587!2d80.24543964525574!3d12.960725669493986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1747926746533!5m2!1sen!2sin" width="80%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17836.82653342587!2d80.24543964525574!3d12.960725669493986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1747926746533!5m2!1sen!2sin" width="80%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <!-- <script>
@@ -47,7 +50,7 @@
         let pushing = document.getElementById("pushing");
         let searchbtndestination = document.getElementById("searchbtndestination")
   
-               const gettinglocation = localStorage.getItem("location")
+            const gettinglocation = localStorage.getItem("location")
             pushing.innerHTML = `<iframe src="https://maps.google.com/maps?q=${gettinglocation},&amp;z=15&amp;output=embed"  width="80%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 
                console.log(gettinglocation);
@@ -73,7 +76,8 @@
         let searchlocation = document.getElementById("searchlocation");
         let searchbtn = document.getElementById("searchbtn");
         let pushing = document.getElementById("pushing");
-        let searchbtndestination = document.getElementById("searchbtndestination")
+        let searchbtndestination = document.getElementById("searchbtndestination");
+        let sharebtn = document.getElementById("sharebtn");
 
         let gettinglocation = localStorage.getItem("location")
         pushing.innerHTML = `<iframe src="https://maps.google.com/maps?q=${gettinglocation},&amp;z=15&amp;output=embed"  width="80%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
@@ -81,13 +85,57 @@
 
         searchbtn.addEventListener("click",()=>{
             pushing.innerHTML = `<iframe src="https://maps.google.com/maps?q=${searchlocation.value},&amp;z=15&amp;output=embed"  width="80%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+
+            
+
         })
+        sharebtn.addEventListener("click",()=>{
+                Swal.fire({
+                    icon : "info",
+                    title : "Do You Want to Get the  Link",
+                    // showCancelButton : true,
+                    showCloseButton : true,
+                    focusConfirm : false,
+                    showDenyButton : true,
+                    confirmButtonText : "Yes",
+                    // cancelButtonText : "Cancel"
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    color: '#ffffff',
+                    // backdrop: 'rgba(0, 0, 0, 0.8)'
+                    backdrop : 'rgba(0, 0, 0, 1)'
+                }).then((result)=>{
+                    if(result.isConfirmed){ 
+                        let share = `https://maps.google.com/maps?q=${searchlocation.value},&amp;z=15&amp;output=embed`
+                        console.log(share);
+                        Swal.fire({
+                            title : " Location",
+                            icon : "success",
+                            // html : `<a href = "share">view</a>`
+                            text : share,
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            color: 'orange',
+                            // backdrop: 'rgba(0, 0, 0, 0.8)'
+                            backdrop : 'rgba(0, 0, 0, 1)',
+                            draggable : true
+                        })
+                    }
+                    else{
+                        Swal.fire({
+                            title:"Error Occured",
+                            icon : "error"
+                        })
+                    }
+                })
+            })
+            
 
         searchbtndestination.addEventListener("click",()=>{
             pushing.innerHTML = `<iframe  width="80%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?saddr=${fromlocation.value}&daddr=${tolocation.value}&output=embed"></iframe>`
         })
 
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </body>
