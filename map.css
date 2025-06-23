@@ -122,7 +122,12 @@ button{
 iframe{
     margin: 40px 150px;
 }
-
+.sharebutton{
+    margin-top: 7px;
+}
+#sharebtn{
+    font-size: 17px;
+}
 
 
 @media screen and (max-width:500px) {
